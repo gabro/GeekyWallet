@@ -1,10 +1,15 @@
 %%
 
 start
-	: header NEW_LINE transactions EOF;
+	: header new_line transactions EOF;
+
+new_line
+	: new_line NEW_LINE
+	| NEW_LINE
+	;
 
 header 
-	: people NEW_LINE
+	: people
 	;
 
 people
@@ -12,12 +17,12 @@ people
 	;
 
 people_list
-	: people_list ID
-	| ID
+	: people_list NAME
+	| NAME
 	;
 
 transactions
-	: transaction NEW_LINE transactions
+	: transaction new_line transactions
 	| transaction
 	| 
 	;
@@ -37,6 +42,7 @@ description
 word
 	: ID
 	| TAG
+	| NAME
 	;
 
 payers
@@ -45,7 +51,7 @@ payers
 	;
 
 payer
-	: ID expr
+	: NAME expr
 	;
 
 beneficiaries
@@ -54,7 +60,7 @@ beneficiaries
 	;
 
 beneficiary
-	: ID amount
+	: NAME amount
 	;
 
 amount

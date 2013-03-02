@@ -8,10 +8,11 @@ ID          				[a-zA-Z0-9_]+
 
 %%
 
-\/\/.*               		return; /* ignore comment */
+\n+							return 'NEW_LINE';
+
+\/\/[^\n]*               	return; /* ignore comment */
 "/*"(.|\n|\r)*?"*/"  		return; /* ignore multiline comment */
 
-\n+ 						return 'NEW_LINE';
 "->"						return 'RIGHT_ARROW';
 "<-"						return 'LEFT_ARROW';
 {DATE}						return 'DATE';
