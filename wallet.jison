@@ -1,13 +1,67 @@
 %%
 
-START
-	: HEADER TRANSACTIONS;
+start
+	: header transactions;
 
-HEADER : ; //TODO
+header 
+	:
+	; //TODO
 
-TRANSACTIONS
-	: TRANSACTIONS TRANSACTION
+transactions
+	: transactions transaction
 	|
 	;
 
-TRANSACTION
+transaction
+	: date cause payers RIGHT_ARROW beneficiaries options
+	;
+
+date
+	: DATE
+	|
+	;
+
+cause
+	: description COLON
+	| 
+	;
+
+description
+	: description ID
+	| description TAG
+	| ID
+	| TAG
+	;
+
+payers
+	: payers payer
+	| payer
+	;
+
+payer
+	: NAME NUMBER
+	;
+
+beneficiaries
+	: beneficiaries beneficiary
+	|  
+	;
+
+beneficiary
+	: NAME amount
+
+amount
+	: modifier NUMBER
+	| NUMBER
+	| 
+	;
+
+modifiers
+	: PLUS
+	| MINUS
+	| MULTIPLY
+	;
+
+options
+	: ELLIPSIS
+	| DOLLAR DOLLAR
