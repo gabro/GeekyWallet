@@ -4,11 +4,20 @@ start
 	: header NEW_LINE transactions EOF;
 
 header 
-	: COMMAND
-	; //TODO
+	: people NEW_LINE
+	;
+
+people
+	: PEOPLE people_list
+	;
+
+people_list
+	: people_list ID
+	| ID
+	;
 
 transactions
-	: transaction NEW_LINE+ transactions
+	: transaction NEW_LINE transactions
 	| transaction
 	| 
 	;

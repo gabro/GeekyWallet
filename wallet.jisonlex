@@ -6,8 +6,11 @@ DATE						{DIGIT}{4}"-"{DIGIT}{2}"-"{DIGIT}{2}
 ID          				[a-zA-Z0-9_]+
 
 %%
+
+\/\/.*               		return; /* ignore comment */
+"/*"(.|\n|\r)*?"*/"  		return; /* ignore multiline comment */
+
 \n+ 						return 'NEW_LINE';
-"//".*						return;
 "->"						return 'RIGHT_ARROW';
 "<-"						return 'LEFT_ARROW';
 {DATE}						return 'DATE';
@@ -16,6 +19,7 @@ ID          				[a-zA-Z0-9_]+
 "*"							return 'MULTIPLY';
 "/"							return 'SLASH';
 "$"							return 'DOLLAR';
+"@people"					return 'PEOPLE';
 "@"{ALPHA}+					return 'COMMAND';
 "#"{ID}						return 'TAG';
 ":"							return 'COLON';
