@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+${1:2013-27-08} ${3:${2:description}: }${4:john} ${5:42} -> ${6:john}${7: ...}
+${8}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>wallet</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
