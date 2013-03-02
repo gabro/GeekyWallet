@@ -3,6 +3,7 @@ DIGIT						[0-9]
 NON_ZERO_DIGIT				[1-9]
 NUMBER     					{NON_ZERO_DIGIT}{DIGIT}*|"0"
 DATE						{DIGIT}{4}"-"{DIGIT}{2}"-"{DIGIT}{2}
+NAME						{ALPHA}+
 ID          				[a-zA-Z0-9_]+
 
 %%
@@ -33,5 +34,6 @@ ID          				[a-zA-Z0-9_]+
 
 {NUMBER}?"."{DIGIT}+		return 'NUMBER';
 {NUMBER}					return 'NUMBER';
+{NAME}						return 'NAME';
 {ID}						return 'ID';
 <<EOF>>                     return 'EOF';
