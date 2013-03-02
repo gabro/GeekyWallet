@@ -1,35 +1,32 @@
 %%
 
 start
-	: header transactions;
+	: header NEW_LINE transactions EOF;
 
 header 
-	:
+	: COMMAND
 	; //TODO
 
 transactions
-	: transactions transaction
-	|
-	;
-
-transaction
-	: date cause payers RIGHT_ARROW beneficiaries options
-	;
-
-date
-	: DATE
-	|
-	;
-
-cause
-	: description COLON
+	: transaction NEW_LINE+ transactions
+	| transaction
 	| 
 	;
 
+transaction
+	: DATE description COLON payers RIGHT_ARROW beneficiaries options
+	| description COLON payers RIGHT_ARROW beneficiaries options
+	| DATE payers RIGHT_ARROW beneficiaries options
+	| payers RIGHT_ARROW beneficiaries options
+	;
+
 description
-	: description ID
-	| description TAG
-	| ID
+	: description word
+	| word
+	;
+
+word
+	: ID
 	| TAG
 	;
 
@@ -39,7 +36,7 @@ payers
 	;
 
 payer
-	: NAME NUMBER
+	: ID expr
 	;
 
 beneficiaries
@@ -48,11 +45,12 @@ beneficiaries
 	;
 
 beneficiary
-	: NAME amount
+	: ID amount
+	;
 
 amount
-	: modifier NUMBER
-	| NUMBER
+	: modifier expr
+	| expr
 	| 
 	;
 
@@ -65,3 +63,19 @@ modifiers
 options
 	: ELLIPSIS
 	| DOLLAR DOLLAR
+	;
+
+expr
+	: term PLUS expr
+	| term
+	;
+
+term
+	: factor MULTIPLY term
+	| factor
+	;
+
+factor
+	: LPAREN expr RPAREN
+	| NUMBER
+	;
