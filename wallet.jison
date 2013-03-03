@@ -6,7 +6,7 @@ start
 new_line
 	: new_line NEW_LINE
 	| NEW_LINE
-	;
+	;x	
 
 header 
 	: people
