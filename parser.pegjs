@@ -28,7 +28,6 @@ lines_block
 
 line
   = SAMEDENT t:transaction (EOL+)? { return t }
-  / SAMEDENT (EOL+)?
   / SAMEDENT block_header EOL INDENT ll:lines_block OUTDENT { return {block: true, lines: ll} }
 
 block_header

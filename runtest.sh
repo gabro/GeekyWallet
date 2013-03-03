@@ -1,4 +1,4 @@
 #! /bin/sh
 
-pegjs --track-line-and-column parser.pegjs
+pegjs parser.pegjs
 node test.js
