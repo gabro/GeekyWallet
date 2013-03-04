@@ -21,7 +21,7 @@ name
   = name:[a-zA-Z]+ { return name.join(""); }
 
 lines
-  = ll:line+ { return ll }
+  = ll:line* { return ll }
 
 lines_block
   = ll:lines { return ll }
@@ -29,6 +29,7 @@ lines_block
 line
   = SAMEDENT t:transaction (EOL+)? { return t }
   / SAMEDENT block_header EOL INDENT ll:lines_block OUTDENT { return {block: true, lines: ll} }
+  / comment
 
 block_header
   = command ("," _ command)*
@@ -174,6 +175,10 @@ whitespace
 
 EOL
   = "\r\n" / "\n" / "\r"
+
+comment
+  = "\/\/" c:([^\n]*) EOL+ {return "line comment: "+c.join("");}
+  / "/*"c:([^*/]*)"*/" EOL* {return "block comment: "+c.join("");}
 
 SAMEDENT
   = i:[ \t]* &{ return i.join("") === indent; }
