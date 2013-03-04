@@ -1,0 +1,9 @@
+- description with ' or " aren't parsed
+
+- numbers in description aren't parsed
+
+- Some general problem with spaces, for example:
+  "c: luca 200 -> gabro" is parsed, but these are not parsed:
+  "c: luca 200-> gabro",
+  "c:luca 200 -> gabro",
+  "c: luca 200 -> gabro "
