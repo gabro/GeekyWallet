@@ -56,13 +56,13 @@ currency_command
   = "@currency" _ number
 
 transaction
-  = date:(d:date _ {return d;})? desc:(d:description ":" _ { return d; })? p:payers " -> " b:beneficiaries opt:(_ o:option {return o;})? {
+  = date:(d:date _ {return d;})? desc:(d:description ":" _ { return d; })? p:payers bs:(" -> " b:beneficiaries opt:(_ o:option {return o;})?{return [b,opt]})? {
       return {
           date   : date,
           desc   : desc,
           payers : p,
-          beneficiaries : b,
-          options : opt,  
+          beneficiaries : bs[0],
+          options : bs[1],  
           
       }
   }
