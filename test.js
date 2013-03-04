@@ -1,7 +1,8 @@
 var parser = require("./parser.js");
 
 var fs = require('fs'),
-    filename = "test";
+    filename = process.argv[2];
+if (!filename) filename='test'; //fallback
 
 fs.readFile(filename, 'utf8', function(err, data) {
   if (err) throw err;

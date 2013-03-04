@@ -1,0 +1,109 @@
+@people: luca gio dani gabro claudio jaja mike paolo
+@group: luca gio dani gabro claudio jaja
+
+Dani 52.13 Luca 356.37 Gabro 13.18 -> claudio 309.88 gio 28.98 jaja 17.25 mike 64.51
+15 gio -> dani
+400 claudio -> gabro
+10 dani -> jaja
+450 gio -> luca
+200 luca -> gabro
+782 claudio -> luca
+
+Hotel Claudio: Claudio 144
+Ikea shared: Gabro 562.2
+Ikea sedie: Gabro 195.27 -> gabro claudio dani
+Ikea desks: Gabro 32.53 -> gabro claudio
+Materassi: Gabro 300 Gio 260 Claudio 80
+Macchina: Dani 99
+Bonifico: Dani 18
+Espresso cups: Gabro 18
+WiFi range extender: Claudio 42
+Fridge Bulbs: Gio 154.5
+Spesa Target: Claudio 117
+Caparre: Dani 960 Luca 440 Gabro 300 Jaja 1500
+Prima rata: Gio 1166.6 Gabro 583.3 Luca 583.3 Dani 583.3 Claudio 583.3 -> luca +151 jaja +151
+Security deposit Internet: Gabro 50
+Bolletta Internet: Gabro 132.80
+ComEd e PeoplesGas ID: Gabro 20
+#Android Box: Jaja 56.76
+Projector piuffigo: Jaja 349
+Bolletta Gas: Gabro 103.81
+AppleTV and Misc: Luca 181.98
+Seconda rata: Luca 1370 Dani 530 Gabro 600 Jaja 700 Gio 300 -> luca +151 jaja +151
+Return fees proiettore: Gio 11.93
+Lavagna: Luca 29.57
+cavo audio: Luca 6.34
+Window markers: Gabro 5.5
+@date: spesa
+Spesa Cibo: Claudio 37 gio gabro claudio dani
+Spesa Trader Joe's: Claudio 198
+Spesa Jewel: Luca 78
+Birre: Claudio 105
+Spesa Jewel:Claudio 151 -> claudio +2.5
+Spesa Trader: Luca 168 -> jaja +5
+Uova e Latte: Gio 2.75 Luca 3.77
+Spesa Jewel: Luca 258 -> gabro +8 luca +3
+Spesa Trader e Jewel: Dani 126.46 Luca 7-> gabro 0
+Spesa biscotti e sale: Claudio 9.12 -> gabro 0
+Spesa jewel osco: Luca 338 -> gabro 0
+@date: night drinks
+Birra: Gio 5 -> claudio
+Birra: Luca 14 -> luca claudio
+Corona: Dani 17 -> gabro dani mike *2 claudio
+Corona: Claudio 17 -> gabro dani jaja *2 mike
+Corona: Mike 15 -> gabro jaja dani mike claudio
+Birra: Dani 37 -> luca 6 dani 14 gio 14 $
+Birra: Gio 19 -> gio 5 claudio dani $
+Alcol: Gabro 30 -> gabro 6 claudio 3 gio 10 dani 8 $
+Alcol: Claudio 23 -> claudio 6 luca 6 gio 3 dani 3 gabro 3 $
+Birra: Luca 9 -> jaja 0
+Margarita: Dani 23 -> dani gio
+Birre e Boo Boo three aces: Gio 36.26 -> jaja 0
+taxi: Dani 13 -> jaja *2 luca 0 gabro 0
+birra: Claudio 9 -> claudio dani
+birra: Claudio 12 -> claudio dani
+drinks: Dani 21 -> dani*2 gio*2 claudio jaja
+drinks: Dani 23 -> dani claudio gio jaja
+calumet: Luca 20 Claudio 30 -> dani claudio gio luca
+Birre drum and monkeys: Claudio 10 -> claudio gio
+Vodka con REDBULL: Claudio 16.5 -> claudio luca dani
+Nicks: Gio 22 -> claudio 6 gio 6 dani 8 $
+Nicks: Gio 17 -> claudio 5 gio 5 luca 6 $
+Nicks: Gio 13 -> luca gio
+Estelles hamburger and beer: Gio 70 -> luca +6 gio +6 claudio dani
+@date: day food
+Bacci 30: Gio 35
+Pranzo cinese: Luca 16.2 -> Luca 4.2 Jaja 4.2 Claudio 5.4 $
+pranzo cinese: Gio 14 -> gio claudio
+Starbucks: Gio 2.5 -> gabro
+Pizza: Claudio 10 -> dani
+Cinese: Luca 23 -> gio 10 luca claudio
+Hamburger: Claudio 54
+Bacci 30: Dani 39.5 -> gabro 0
+Bar: Claudio 5 -> luca claudio jaja
+Chinese sabato pranzo: Luca 18.45 -> luca claudio dani gio
+@date: others
+Sim card: Luca 15 -> luca dani
+Sim card: Gabro 2 -> gabro gio
+Taxi University of Chicago: Luca 23 Gio 25 -> jaja 0 claudio 0
+solidfun: Luca 310 Jaja 90 -> gabro 0 
+Pizza: Dani 42 -> jaja gio dani claudio
+5 Gio -> Dani
+Brunch: Claudio 65 -> gabro 0 jaja 0
+Netflix: Jaja 7.99 ->
+Cinese: Jaja 22 -> luca gabro dani gio
+12 Gio -> Dani
+Drum and monkey: Dani 30 -> luca claudio dani gio
+7 Eleven: Gio 15 -> gabro 0
+7 Eleven: Luca 4
+Bolletta gas: Gabro 195.95
+Spesa Trader: Gabro 134 ->
+Alcol gugo: Gio 38.32 -> claudio 0
+Vino: Jaja 33 -> claudio 0
+Spesa: Jaja 151
+Pranzo cinese: Luca 9.3 -> luca gio
+Cena Indiano: Jaja 92.6 -> gabro 9 luca 9.5 gio 13.5 dani 20 jaja 26 $
+Vino: Jaja 7.91 -> jaja *2 gabro luca gio dani
+250 gio -> luca
+Terza rata: Luca 900 Dani 450 Gabro 550 Jaja 700 Gio 360 Claudio 540 -> luca +151 jaja +151
+Coronas bucket: gio 18 -> jaja *2 luca 0 claudio 0
