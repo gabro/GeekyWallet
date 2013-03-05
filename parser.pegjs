@@ -1,11 +1,11 @@
 {
   var indentStack = [], indent = "";
+  var line = 1;
 }
 
 start
-  = h:header EOL+ ll:lines
-    {
-      return { header: h, lines: ll };
+  = h:header EOL+ ll:lines {
+      return { Wallet(h, ll) }
     }
 
 header
@@ -15,24 +15,31 @@ people
   = "@people" people_list
 
 people_list
-  = pp:(_ p:name {return p;})+ { return {people: pp}; }
+  = pp:(_ p:name {return p;})+ {
+    return {people: pp}
+  }
 
 name
-  = name:[a-zA-Z]+ { return name.join(""); }
+  = name:[a-zA-Z]+ {
+    return name.join("");
+  }
 
 lines
-  = ll:line* { return ll }
-
-lines_block
-  = ll:lines { return ll }
+  = ll:line* {
+    return ll;
+  }
 
 line
-  = SAMEDENT t:transaction (EOL+)? { return t }
-  / SAMEDENT block_header EOL INDENT ll:lines_block OUTDENT { return {block: true, lines: ll} }
-  / comment
+  = SAMEDENT t:transaction comment? EOL* {
+    return t;
+  }
+  / SAMEDENT block_header comment? EOL INDENT ll:lines OUTDENT {
+    return {block: true, lines: ll}
+  }
+  / comment EOL*
 
 block_header
-  = command ("," _ command)*
+  = command _? ("," _? command)*
 
 command
   = group_command
@@ -56,7 +63,7 @@ currency_command
   = "@currency" _ number
 
 transaction
-  = date:(d:date _ {return d;})? desc:(d:description ":" _ { return d; })? p:payers bs:(" -> " b:beneficiaries opt:(_ o:option {return o;})?{return [b,opt]})? {
+  = date:(d:date _ {return d;})? desc:(d:description ":" _? { return d; })? p:payers bs:(" -> " b:beneficiaries opt:(_ o:option {return o;})?{return [b,opt]})? {
       return {
           date   : date,
           desc   : desc,
@@ -82,7 +89,7 @@ description
   } 
 
 word
-  = word:[a-zA-Z-_]+ { return word.join(""); }
+  = word:[a-zA-Z-_'0-9"]+ { return word.join(""); }
 
 tag
   = t:("#" word) { return t.join(""); }
@@ -174,11 +181,22 @@ whitespace
   = " " / "\t"
 
 EOL
-  = "\r\n" / "\n" / "\r"
+  = "\r\n" / "\n" / "\r" {
+    console.log(line);
+    line++;
+  }
+
+NOT_EOL
+  = EOL &{ return false }
+  / . { return true }
 
 comment
-  = "\/\/" c:([^\n]*) EOL+ {return "line comment: "+c.join("");}
-  / "/*"c:([^*/]*)"*/" EOL* {return "block comment: "+c.join("");}
+  = "//" NOT_EOL* {
+    return "line comment";
+  }
+  / "/*" [^*/]* "*/" {
+    return "comment";
+  }
 
 SAMEDENT
   = i:[ \t]* &{ return i.join("") === indent; }

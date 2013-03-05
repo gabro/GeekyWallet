@@ -1,10 +1,8 @@
 window.Wallet = class Wallet
-  constructor: (@title) ->
-    @people = []
-    @lines  = []
+  constructor: (@people = [], @lines = []) ->
 
 Wallet.Person = class Person
-  constructor: (@name) ->  
+  constructor: (@name) ->
 
 Wallet.Line = class Line
   constructor: (@desc) ->
