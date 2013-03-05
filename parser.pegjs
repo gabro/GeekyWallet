@@ -5,7 +5,7 @@
 
 start
   = h:header EOL+ ll:lines {
-      return { Wallet(h, ll) }
+      return {header: h, lines: ll}
     }
 
 header
@@ -30,13 +30,13 @@ lines
   }
 
 line
-  = SAMEDENT t:transaction comment? EOL* {
+  = SAMEDENT t:transaction EOL* {
     return t;
   }
-  / SAMEDENT block_header comment? EOL INDENT ll:lines OUTDENT {
+  / SAMEDENT block_header EOL INDENT ll:lines OUTDENT {
     return {block: true, lines: ll}
   }
-  / comment EOL*
+  / comment EOL+
 
 block_header
   = command _? ("," _? command)*
@@ -48,19 +48,19 @@ command
   / currency_command
 
 group_command
-  = "@group" people_list
+  = "@group" pl:people_list
 
 date_command
-  = "@date" _ date
+  = "@date" _ d:date
 
 tag_command
-  = "@tag" tag_list
+  = "@tag" tl:tag_list
 
 tag_list
   = (_ tag)+
 
 currency_command
-  = "@currency" _ number
+  = "@currency" _ n:number
 
 transaction
   = date:(d:date _ {return d;})? desc:(d:description ":" _? { return d; })? p:payers bs:(" -> " b:beneficiaries opt:(_ o:option {return o;})?{return [b,opt]})? {
@@ -182,7 +182,6 @@ whitespace
 
 EOL
   = "\r\n" / "\n" / "\r" {
-    console.log(line);
     line++;
   }
 
